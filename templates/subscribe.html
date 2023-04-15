@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Subscribe to my Blog for further updates</h1>
+    <br> <br>
+    <form action="/form" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" id="first_name" placeholder="First Name" name="first_name">
+        </div>
+        
+        <div class="form-group">
+            <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name">
+        </div>
+        
+        <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="Email Address" name="email">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</div>
+{% endblock %}
