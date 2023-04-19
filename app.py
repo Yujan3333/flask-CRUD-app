@@ -31,14 +31,6 @@ def form():
     last_name= request.form.get("last_name")
     email= request.form.get("email")
     
-    message="You have been subscribed"
-    # creating a smptp server for gmail and they listen on port 587
-    server = smtplib.SMTP("smtp.gmail.com",587)
-    server.starttls()
-    # here email and password is present
-    server.login("yujan@gmail.com","PASSWORD")
-    # from your email to the recerived email send message
-    server.sendmail('yujan@gmail.com',email,message)
     
     if not first_name or not last_name or not email:
         error_statement = "All fields must be filled !!"
