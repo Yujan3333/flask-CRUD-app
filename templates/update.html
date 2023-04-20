@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Friends {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Update Friends..</h1>
+        <br>
+<!-- here gives the id of friend to update from app.py -->
+        <form action="/update/{{friend_to_update.id}}" method="post">
+            <input type="text" placeholder="Name" name="name" value="{{friend_to_update.name}}">
+            <input type="submit" value=" Update Name" class=" btn btn-primary">
+        </form>
+
+        <br><br>
+        {% for friend in friends %}
+            <h4>
+                {{friend.name}}
+            </h4>
+            
+        {% endfor %}
+
+    </div>
+{% endblock %}

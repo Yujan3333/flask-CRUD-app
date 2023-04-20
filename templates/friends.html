@@ -13,12 +13,25 @@
         </form>
 
         <br><br>
-        {% for friend in friends %}
-            <h4>
-                {{friend.name}}
-            </h4>
-            
-        {% endfor %}
+        <table>
+            <header>Friends table</header>
+            --------------------
+            <br>
+                {% for friend in friends %}
+                <tr>
+                    <h4>
+                        <td> 
+                            {{friend.name}} 
+                        </td>
+                        
+                        <td>
+                            <a href="/update/{{friend.id}}" class="btn btn-outline-secondary btn-sm">Update</a>
+                        </td>    
+                    </h4>
+                </tr>
+                
+                {% endfor %}
+        </table>
 
     </div>
 {% endblock %}
