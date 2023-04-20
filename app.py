@@ -34,6 +34,24 @@ class Friends(db.Model):
 subscribers = [];
 
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    friend_to_delete = Friends.query.get_or_404(id)
+    
+    try:
+        db.session.delete(friend_to_delete)
+        db.session.commit()
+        return redirect('/friends')
+    except:
+        return "Problem deleting the friend"
+
+
+
+
+
+
+
+
 @app.route('/update/<int:id>', methods=['POST','GET'])
 def update(id):
     friend_to_update = Friends.query.get_or_404(id) 
@@ -46,6 +64,8 @@ def update(id):
             return "There was a problem updating friends!"
     else:
         return render_template('update.html',friend_to_update=friend_to_update)
+
+
 
 @app.route('/friends', methods=['POST','GET'])
 def friends():
@@ -94,6 +114,8 @@ def subscribe():
     # using jinja
     title="Subscribe my blog"
     return render_template("subscribe.html",title=title)
+
+
 
 @app.route('/form', methods=["POST"])
 def form():
